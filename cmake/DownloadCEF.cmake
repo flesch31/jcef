@@ -21,9 +21,8 @@ function(DownloadCEF platform version download_dir)
     set(CEF_DOWNLOAD_FILENAME "${CEF_DISTRIBUTION}.tar.bz2")
     set(CEF_DOWNLOAD_PATH "${CEF_DOWNLOAD_DIR}/${CEF_DOWNLOAD_FILENAME}")
     if(NOT EXISTS "${CEF_DOWNLOAD_PATH}")
-      set(CEF_DOWNLOAD_URL "http://opensource.spotify.com/cefbuilds/${CEF_DOWNLOAD_FILENAME}")
-      string(REPLACE "+" "%2B" CEF_DOWNLOAD_URL_ESCAPED ${CEF_DOWNLOAD_URL})
-
+      set(CEF_DOWNLOAD_URL "https://bitbucket.org/chromiumembedded/cef/get/3770.tar.bz2")
+      
       # Download the SHA1 hash for the binary distribution.
       message(STATUS "Downloading ${CEF_DOWNLOAD_PATH}.sha1 from ${CEF_DOWNLOAD_URL_ESCAPED}...")
       file(DOWNLOAD "${CEF_DOWNLOAD_URL_ESCAPED}.sha1" "${CEF_DOWNLOAD_PATH}.sha1")
