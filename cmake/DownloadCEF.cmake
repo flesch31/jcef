@@ -23,16 +23,11 @@ function(DownloadCEF platform version download_dir)
     if(NOT EXISTS "${CEF_DOWNLOAD_PATH}")
       set(CEF_DOWNLOAD_URL "https://bitbucket.org/chromiumembedded/cef/get/3770.tar.bz2")
       
-      # Download the SHA1 hash for the binary distribution.
-      message(STATUS "Downloading ${CEF_DOWNLOAD_PATH}.sha1 from ${CEF_DOWNLOAD_URL_ESCAPED}...")
-      file(DOWNLOAD "${CEF_DOWNLOAD_URL_ESCAPED}.sha1" "${CEF_DOWNLOAD_PATH}.sha1")
-      file(READ "${CEF_DOWNLOAD_PATH}.sha1" CEF_SHA1)
 
       # Download the binary distribution and verify the hash.
       message(STATUS "Downloading ${CEF_DOWNLOAD_PATH}...")
       file(
         DOWNLOAD "${CEF_DOWNLOAD_URL_ESCAPED}" "${CEF_DOWNLOAD_PATH}"
-        EXPECTED_HASH SHA1=${CEF_SHA1}
         SHOW_PROGRESS
         )
     endif()
